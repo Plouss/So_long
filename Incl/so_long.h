@@ -29,6 +29,7 @@ typedef struct t_data {
 	void	**path;
 	void	**img;
 	int		start;
+	int		move;
 }				t_data;
 
 char	**ft_split(char const *s, char c, t_data *my_struct);
@@ -56,4 +57,5 @@ bool	check_walls(t_data my_struct);
 bool	check_different(t_data my_struct);
 bool	check_exit_player_coin(t_data *my_struct);
 int		check_rectangle(t_data my_struct);
+void	destroy_img(t_data *my_struct);
 #endif

@@ -6,7 +6,7 @@ void	put_img(t_data *my_struct, int i, int j)
     if (my_struct->matrix[i][j] == '1') // If 1, display walls
         mlx_put_image_to_window(my_struct->mlx, my_struct->win, my_struct->img[1], j * 32, i * 32);
     if (my_struct->matrix[i][j] == 'C') //If C, display coin
-		mlx_put_image_to_window(my_struct->mlx, my_struct->win, my_struct->img[6], j * 32, i * 32);
+		mlx_put_image_to_window(my_struct->mlx, my_struct->win, my_struct->img[5], j * 32, i * 32);
 	if (my_struct->matrix[i][j] == 'P') // If P, display player
 		mlx_put_image_to_window(my_struct->mlx, my_struct->win, my_struct->img[2], j * 32, i * 32);
 	if (my_struct->coin == 0 && my_struct->matrix[i][j] == 'E') // If E and there are no more coin, display exit door
