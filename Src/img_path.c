@@ -7,7 +7,11 @@ void    create_img(t_data *my_struct)
     int index;
 
 	my_struct->path = (void **)malloc(sizeof(void **) * 6);
+	if(!my_struct->path)
+		return ;
 	my_struct->img = (void **)malloc(sizeof(void **) * 6);
+	if(!my_struct->img)
+		return ;
 	my_struct->path[0] = "./image/layers.xpm"; //background
 	my_struct->path[1] = "./image/wall.xpm"; // mur
 	my_struct->path[2] = "./image/player.xpm"; // player
@@ -26,7 +30,6 @@ void    create_img(t_data *my_struct)
 		printf("%s", "Error\n");
 		exit(EXIT_FAILURE);
 	}
-
 }
 
 

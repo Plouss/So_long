@@ -13,14 +13,19 @@ int matrix_filling(t_data *my_struct)
     line = get_next_line(fd); 
     // printf("Line:\n %s", line);
     my_struct->matrix = ft_split(line, '\n', my_struct);
+    my_struct->matrix_path_find = ft_split(line, '\n', my_struct);
     // printf("\n Split: \n %c \n", my_struct->matrix[1][2]);
     while(my_struct->matrix[0][my_struct->width] != '\0')
         my_struct->width++;
 	 if (!check_walls(*my_struct) || !check_exit_player_coin(my_struct)
 	 	 || !check_different(*my_struct) || !check_rectangle(*my_struct))
         return (0);
-	// if (!check_rectangle(*my_struct) || !check_exit_player_coin(my_struct)
-	// 	|| !check_walls(*my_struct) || !check_different(*my_struct))
+    if (path_find(my_struct, my_struct->i,  my_struct->j) < 0)
+    {
+        printf("Error\n");
+        exit(EXIT_FAILURE);
+    }       
+
     close(fd);
     free(line);
     return (1);

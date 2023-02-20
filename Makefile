@@ -9,7 +9,7 @@ END			= \e[0m
 NAME		= so_long
 
 FILES = so_long map img_path get_next_line ft_split error move \
-		put_img check
+		put_img check pathfinding
 
 PROJECT_H	= ./Incl/so_long.h
 OBJS		= $(SRCS:.c=.o)

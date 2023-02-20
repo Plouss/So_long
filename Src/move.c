@@ -2,8 +2,8 @@
 
 int check(int keycode, t_data *my_struct)
 {
-        int test = 1;
-        test = my_struct->move;
+        int nb_move = 1;
+        nb_move = my_struct->move;
     if (keycode == 36)
         my_struct->start = 1;
     if (keycode == 53 || keycode == 12)
@@ -21,9 +21,9 @@ int check(int keycode, t_data *my_struct)
         if (keycode == 2 || keycode == 124)
             move_right(my_struct);
         put_map(my_struct);
-        if (my_struct->move != test)
+        if (my_struct->move != nb_move) 
         {
-			test++;
+			nb_move++;
             printf("\n%d", my_struct->move);
         }
         

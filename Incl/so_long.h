@@ -26,6 +26,7 @@ typedef struct t_data {
 	int		height;
 	int		end;
 	char	**matrix;
+	char	**matrix_path_find;
 	void	**path;
 	void	**img;
 	int		start;
@@ -58,4 +59,5 @@ bool	check_different(t_data my_struct);
 bool	check_exit_player_coin(t_data *my_struct);
 int		check_rectangle(t_data my_struct);
 void	destroy_img(t_data *my_struct);
+int 	path_find(t_data *my_struct, int i, int j);
 #endif

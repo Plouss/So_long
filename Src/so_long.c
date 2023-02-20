@@ -24,7 +24,7 @@ int main(int argc, char **argv)
         return (0);
     my_struct.mlx = mlx_init();
     // printf("%s", "HELLO WORLD");
-    create_img    (&my_struct); 
+    create_img(&my_struct); 
     my_struct.win = mlx_new_window(my_struct.mlx, my_struct.width * 32, my_struct.height * 32, "So_long"); // Affiche la nouvel fenêtre.
     put_map(&my_struct);
     my_struct.loop = 0;
