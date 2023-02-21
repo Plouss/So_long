@@ -26,7 +26,7 @@ int	verif_ber(char *str)
 		if ((str[i] != 'r' && (str[i - 1] != 'e') && (str[i - 2] != 'b'))
 			|| (str[i - 3] != '.'))
 		{
-			printf("%c %c %c", str[i], str[i - 1], str[i - 2]);
+			printf("%c\n %c\n %c\n", str[i], str[i - 1], str[i - 2]);
 			printf("Error\nLa map doit  de type .ber\n");
 			exit(EXIT_FAILURE);
 			return (0);
@@ -49,7 +49,7 @@ int	error_argc2(int argc, char **argv)
 		{
 			while (argv[x])
 			{
-				verif_ber(argv[i]);
+				// verif_ber(argv[i]);
 				x++;
 			}
 		}
