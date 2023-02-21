@@ -6,9 +6,6 @@ void initialize(t_data  *my_struct)
     my_struct->check_p = 0;
     my_struct->coin = 0;
     my_struct->move = 0;
-    // my_struct->x = 0;
-    // my_struct->y = 0;
-    my_struct->count_step = 0;
 }
 
 int main(int argc, char **argv)
@@ -20,14 +17,14 @@ int main(int argc, char **argv)
     error_argc2(argc, argv);
     initialize(&my_struct);
     my_struct.map = argv[1];
-    if (matrix_filling(&my_struct) == 0) // S'il ya une erreur, return 0.
+    if (matrix_filling(&my_struct) == 0)
         return (0);
     my_struct.mlx = mlx_init();
-    // printf("%s", "HELLO WORLD");
     create_img(&my_struct); 
-    my_struct.win = mlx_new_window(my_struct.mlx, my_struct.width * 32, my_struct.height * 32, "So_long"); // Affiche la nouvel fenêtre.
+    my_struct.win = mlx_new_window(my_struct.mlx, my_struct.width * 32, my_struct.height * 32, "So_long");
     put_map(&my_struct);
     my_struct.loop = 0;
+    mlx_hook(my_struct.win, 17, 0, &exit_window, &my_struct);
     mlx_hook(my_struct.win, 3, 0, check, &my_struct);
     mlx_loop(my_struct.mlx);
 }

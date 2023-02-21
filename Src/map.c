@@ -22,7 +22,7 @@ int matrix_filling(t_data *my_struct)
         return (0);
     if (path_find(my_struct, my_struct->i,  my_struct->j) < 0)
     {
-        printf("Error\n");
+        ft_printf("Error\nIl n'y a pas de chemin pour sortir du labyrinthe");
         exit(EXIT_FAILURE);
     }       
 

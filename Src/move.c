@@ -15,7 +15,7 @@ int check(int keycode, t_data *my_struct)
         if (keycode ==  13 || keycode == 126)
             move_up(my_struct);
         if (keycode == 0 || keycode == 123)
-            move_left(my_struct); // Si j'appuie sur q, alors move_left.
+            move_left(my_struct);
         if (keycode == 1 || keycode == 125)
             move_down(my_struct);
         if (keycode == 2 || keycode == 124)
@@ -24,12 +24,18 @@ int check(int keycode, t_data *my_struct)
         if (my_struct->move != nb_move) 
         {
 			nb_move++;
-            printf("\n%d", my_struct->move);
+            ft_printf("\n%d", my_struct->move);
         }
-        
         return (1);
     }
     return (0);
+}
+
+int	exit_window(t_data *my_struct)
+{
+	destroy_img(my_struct);
+	exit(EXIT_SUCCESS);
+	return (0);
 }
 
 void	quit(t_data *my_struct)
