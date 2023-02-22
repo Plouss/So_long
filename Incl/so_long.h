@@ -10,13 +10,14 @@
 # include <unistd.h>
 # include <stdbool.h>
 
+# define X_EVENT_KEY_PRESS 2
+
 typedef struct t_data {
 	void	*mlx;
 	void	*win;
 	int		coin;
 	int		check_e;
 	int		check_p;
-	int		count_step;
 	int		i;//position de mon joueur
 	int		j;//position de mon joueur
 	int		loop;
@@ -50,14 +51,11 @@ void	move_right(t_data *my_struct);
 void	move_left(t_data *my_struct);
 void	move_up(t_data *my_struct);
 void	move_down(t_data *my_struct);
-// bool	check_walls(t_data my_struct);
-// bool	check_exit_player_coin(t_data *my_struct);
-// bool    check_consistency(t_data my_struct);
-// int	check_rectangle(t_data my_struct);
 bool	check_walls(t_data my_struct);
 bool	check_different(t_data my_struct);
 bool	check_exit_player_coin(t_data *my_struct);
 int		check_rectangle(t_data my_struct);
 void	destroy_img(t_data *my_struct);
 int 	path_find(t_data *my_struct, int i, int j);
+int		exit_window(t_data *my_struct);
 #endif

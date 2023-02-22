@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     initialize(&my_struct);
     my_struct.map = argv[1];
     if (matrix_filling(&my_struct) == 0)
-        return (0);
+        exit(EXIT_FAILURE);
     my_struct.mlx = mlx_init();
     create_img(&my_struct); 
     my_struct.win = mlx_new_window(my_struct.mlx, my_struct.width * 32, my_struct.height * 32, "So_long");

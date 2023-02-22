@@ -35,7 +35,6 @@ int	exit_window(t_data *my_struct)
 {
 	destroy_img(my_struct);
 	exit(EXIT_SUCCESS);
-	return (0);
 }
 
 void	quit(t_data *my_struct)
@@ -58,7 +57,10 @@ void	move_right(t_data *my_struct)
 	else if (my_struct->matrix[my_struct->i][my_struct->j + 1] == 'E' && my_struct->coin == 0)
 		return (quit(my_struct));
 	else if (my_struct->matrix[my_struct->i][my_struct->j + 1] == 'E')
-		return ;
+	{
+		my_struct->matrix[my_struct->i][my_struct->j] = '0';
+		my_struct->matrix[my_struct->i][my_struct->j + 1] = 'E';
+	}
 	else
 	{
 		my_struct->matrix[my_struct->i][my_struct->j] = '0';
@@ -75,8 +77,8 @@ void	move_left(t_data *my_struct)
 	else if (my_struct->matrix[my_struct->i][my_struct->j - 1] == 'C')
 	{
 		my_struct->coin--;
-		my_struct->matrix[my_struct->i][my_struct->j] = '0';
 		my_struct->matrix[my_struct->i][my_struct->j - 1] = 'P';
+		my_struct->matrix[my_struct->i][my_struct->j] = '0';
 	}
 	else if (my_struct->matrix[my_struct->i][my_struct->j - 1] == 'E' && my_struct->coin == 0)
 		return (quit(my_struct));
@@ -86,6 +88,7 @@ void	move_left(t_data *my_struct)
 	{
 		my_struct->matrix[my_struct->i][my_struct->j] = '0';
 		my_struct->matrix[my_struct->i][my_struct->j - 1] = 'P';
+		my_struct->matrix[my_struct->i][my_struct->j - 1] = 'E';
 	}
 	my_struct->move++;
 	my_struct->j--;

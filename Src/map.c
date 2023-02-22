@@ -19,7 +19,7 @@ int matrix_filling(t_data *my_struct)
         my_struct->width++;
 	 if (!check_walls(*my_struct) || !check_exit_player_coin(my_struct)
 	 	 || !check_different(*my_struct) || !check_rectangle(*my_struct))
-        return (0);
+        exit(EXIT_FAILURE);
     if (path_find(my_struct, my_struct->i,  my_struct->j) < 0)
     {
         ft_printf("Error\nIl n'y a pas de chemin pour sortir du labyrinthe");
