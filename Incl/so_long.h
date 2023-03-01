@@ -18,8 +18,11 @@ typedef struct t_data {
 	int		coin;
 	int		check_e;
 	int		check_p;
-	int		i;//position de mon joueur
-	int		j;//position de mon joueur
+	int		i;
+	int		j;
+	int		x;
+	int		y;
+	int		move_count;
 	int		loop;
 	int		random;
 	void	*map;
@@ -36,11 +39,11 @@ typedef struct t_data {
 
 char	**ft_split(char const *s, char c, t_data *my_struct);
 char	*get_next_line(int fd);
-void	initialize(t_data  *my_struct);
-void    create_img(t_data *my_struct);
+void	initialize(t_data *my_struct);
+void	create_img(t_data *my_struct);
 int		matrix_filling(t_data *my_struct);
 void	put_img(t_data *my_struct, int i, int j);
-void    put_map(t_data  *my_struct);
+void	put_map(t_data *my_struct);
 int		error_display(int error_num, int nb_argc);
 int		error_argc2(int argc, char **argv);
 int		verif_ber(char *str);
@@ -56,6 +59,7 @@ bool	check_different(t_data my_struct);
 bool	check_exit_player_coin(t_data *my_struct);
 int		check_rectangle(t_data my_struct);
 void	destroy_img(t_data *my_struct);
-int 	path_find(t_data *my_struct, int i, int j);
+int		path_find(t_data *my_struct, int i, int j);
 int		exit_window(t_data *my_struct);
+void	path_img(t_data *my_struct);
 #endif

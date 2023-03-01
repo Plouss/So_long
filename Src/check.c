@@ -7,7 +7,8 @@ bool	check_walls(t_data my_struct)
 	i = -1;
 	while (++i < my_struct.width)
 	{
-		if (my_struct.matrix[0][i] != '1' || my_struct.matrix[my_struct.height - 1][i] != '1')
+		if (my_struct.matrix[0][i] != '1'
+		|| my_struct.matrix[my_struct.height - 1][i] != '1')
 		{
 			ft_printf("Error\nLa map n'est pas entourée de murs");
 			return (false);
@@ -16,7 +17,8 @@ bool	check_walls(t_data my_struct)
 	i = 0;
 	while (++i < my_struct.height - 1)
 	{
-		if (my_struct.matrix[i][0] != '1' || my_struct.matrix[i][my_struct.width - 1] != '1')
+		if (my_struct.matrix[i][0] != '1'
+		|| my_struct.matrix[i][my_struct.width - 1] != '1')
 		{
 			ft_printf("Error\nLa map n'est pas entourée de murs");
 			return (false);
@@ -72,28 +74,26 @@ int	check_rectangle(t_data my_struct)
 
 bool	check_exit_player_coin(t_data *my_struct)
 {
-	int	x;	
-	int	y;
-
-	x = -1;
-	while (++x < my_struct->height)
+	my_struct->x = -1;
+	while (++my_struct->x < my_struct->height)
 	{
-		y = -1;
-		while (++y < my_struct->width)
+		my_struct->y = -1;
+		while (++my_struct->y < my_struct->width)
 		{
-			if (my_struct->matrix[x][y] == 'P')
+			if (my_struct->matrix[my_struct->x][my_struct->y] == 'P')
 			{
-				my_struct->i = x;
-				my_struct->j = y;
+				my_struct->i = my_struct->x;
+				my_struct->j = my_struct->y;
 				my_struct->check_p++;
 			}
-			if (my_struct->matrix[x][y] == 'E')
+			if (my_struct->matrix[my_struct->x][my_struct->y] == 'E')
 				my_struct->check_e++;
-			if (my_struct->matrix[x][y] == 'C')
+			if (my_struct->matrix[my_struct->x][my_struct->y] == 'C')
 				my_struct->coin++;
 		}
 	}
-	if (my_struct->check_p != 1 || my_struct->check_e != 1 || my_struct->coin == 0)
+	if (my_struct->check_p != 1 || my_struct->check_e != 1
+		|| my_struct->coin == 0)
 	{
 		ft_printf("Error\nIl n'y a pas de joueur, de sortie ou de pièce");
 		return (false);
@@ -108,13 +108,10 @@ int	path_find(t_data *my_struct, int i, int j)
 	char	left;
 	char	right;
 
-
-
 	up = my_struct->matrix_path_find[i - 1][j];
 	down = my_struct->matrix_path_find[i + 1][j];
 	left = my_struct->matrix_path_find[i][j - 1];
 	right = my_struct->matrix_path_find[i][j + 1];
-	
 	if (my_struct->check_e == 0)
 		return (0);
 	if (my_struct->matrix_path_find[i][j] == 'E')
@@ -127,17 +124,8 @@ int	path_find(t_data *my_struct, int i, int j)
 	if (left != '1' && left != '9')
 		path_find(my_struct, i, j - 1);
 	if (right != '1' && right != '9')
-		path_find(my_struct, i, j + 1); 
+		path_find(my_struct, i, j + 1);
 	if (my_struct->check_e == 0)
 		return (0);
 	return (-1);
 }
-
-	// if ((up != '1' && up != '9') || (up != 'E' && my_struct->check_e != 0))
-	// 	path_find(my_struct, i - 1, j);
-	// if ((down != '1' && down != '9') || (down != 'E' && my_struct->check_e != 0))
-	// 	path_find(my_struct, i + 1, j);
-	// if ((left != '1' && left != '9') || ( left != 'E' && my_struct->check_e != 0))
-	// 	path_find(my_struct, i, j - 1);
-	// if ((right != '1' && right != '9') || ( right != 'E' && my_struct->check_e != 0))
-	// 	path_find(my_struct, i, j + 1); 
